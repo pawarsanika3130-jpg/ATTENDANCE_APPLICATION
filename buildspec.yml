@@ -1,10 +1,16 @@
 version: 0.2
 
 phases:
+
   build:
     commands:
-      - echo "Build Successful"
 
-artifacts:
-  files:
-    - '**/*'
+      - echo Deploying Attendance App
+
+      - ssh ec2-user@EC2_IP "
+          cd attendance-app &&
+          git pull origin main &&
+          pip3 install -r requirements.txt &&
+          pkill -f app.py || true &&
+          nohup python3 app.py > output.log 2>&1 &
+        "
