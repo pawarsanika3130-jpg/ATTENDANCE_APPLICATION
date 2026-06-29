@@ -7,7 +7,7 @@ phases:
 
       - echo Deploying Attendance App
 
-      - ssh ec2-user@EC2_IP "
+      - ssh ec2-user@52.66.211.25 "
           cd attendance-app &&
           git pull origin main &&
           pip3 install -r requirements.txt &&
