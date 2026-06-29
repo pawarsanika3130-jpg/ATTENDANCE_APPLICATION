@@ -8,7 +8,7 @@ phases:
       - echo Deploying Attendance App
 
       - ssh ec2-user@52.66.211.25 "
-          cd attendance-app &&
+          cd ATTENDANCE_APPLICATION &&
           git pull origin main &&
           pip3 install -r requirements.txt &&
           pkill -f app.py || true &&
